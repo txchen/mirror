@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const dashdash = require('dashdash')
 
 const options = [
