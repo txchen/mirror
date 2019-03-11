@@ -44,5 +44,5 @@ ${help}`)
   process.exit(0)
 }
 
-const mirror = require('./mirror')({ log: opts.log, port: opts.port, bindall: opts.bindall })
+const mirror = require('./dist')({ log: opts.log, port: opts.port, bindall: opts.bindall })
 mirror.start().then(msg => console.log(msg))

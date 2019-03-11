@@ -2,7 +2,7 @@
   "name": "httpmirror",
   "version": "0.1.0",
   "description": "an http debug utility that returns the request details",
-  "main": "mirror.js",
+  "main": "./dist/index.js",
   "bin": {
     "mirror": "cli.js"
   },
@@ -22,11 +22,15 @@
   "bugs": {
     "url": "https://github.com/txchen/mirror/issues"
   },
+  "scripts": {
+    "build": "ncc build mirror.js"
+  },
   "homepage": "https://github.com/txchen/mirror",
-  "dependencies": {
+  "devDependencies": {
     "dashdash": "^1.14.1",
     "fastify": "^2.0.1",
     "fastify-formbody": "^3.1.0",
-    "uri-js": "^4.2.2"
+    "uri-js": "^4.2.2",
+    "@zeit/ncc": "^0.15.2"
   }
 }
