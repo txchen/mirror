@@ -7,16 +7,20 @@ const mirror = (opts = { log: false, port: 9999, bindall: false }) => {
   fastify.all('/*', async (req, reply) => {
     const raw = req.req
     const urlData = urijs.parse('//' + raw.headers.host + raw.url)
-    return {
+    const resp = {
       method: raw.method,
-      query: req.query,
-      params: req.params,
+      // query: req.query,
+      // params: req.params,
       headers: raw.headers,
       body: req.body,
       ip: raw.ip,
       reqId: req.id,
       urlData
     }
+    if (req.headers['accept'].includes('text/html')) {
+      return JSON.stringify(resp, null, 2)
+    }
+    return resp
   })
 
   const start = async () => {
