@@ -1,6 +1,6 @@
 {
   "name": "httpmirror",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "an http debug utility that returns the request details",
   "main": "./dist/index.js",
   "bin": {
@@ -27,7 +27,6 @@
   },
   "homepage": "https://github.com/txchen/mirror",
   "devDependencies": {
-    "dashdash": "^1.14.1",
     "fastify": "^2.0.1",
     "fastify-formbody": "^3.1.0",
     "uri-js": "^4.2.2",
@@ -38,5 +37,8 @@
     "mirror.js",
     "README.md",
     "dist/"
-  ]
+  ],
+  "dependencies": {
+    "dashdash": "^1.14.1"
+  }
 }
