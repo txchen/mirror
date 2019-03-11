@@ -2,9 +2,9 @@
   "name": "httpmirror",
   "version": "0.1.0",
   "description": "an http debug utility that returns the request details",
-  "main": "index.js",
+  "main": "mirror.js",
   "bin": {
-    "light-server": "cli.js"
+    "mirror": "cli.js"
   },
   "repository": {
     "type": "git",
