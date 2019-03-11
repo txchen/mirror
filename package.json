@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/txchen/mirror",
   "dependencies": {
+    "dashdash": "^1.14.1",
     "fastify": "^2.0.1",
     "fastify-formbody": "^3.1.0",
     "uri-js": "^4.2.2"

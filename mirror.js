@@ -1,12 +1,10 @@
-// Require the framework and instantiate it
-const fastify = require('fastify')({ logger: true })
 const urijs = require('uri-js')
 
-const mirror = (opts = { port: 9500, logger: false }) => {
-  const fastify = require('fastify')({ logger: opts.logger === true })
+const mirror = (opts = { log: false, port: 9999, bindall: false }) => {
+  const fastify = require('fastify')({ logger: opts.log === true })
   fastify.register(require('fastify-formbody'))
 
-  fastify.all('/*', async (req, _reply) => {
+  fastify.all('/*', async (req, reply) => {
     const raw = req.req
     const urlData = urijs.parse('//' + raw.headers.host + raw.url)
     return {
@@ -22,9 +20,10 @@ const mirror = (opts = { port: 9500, logger: false }) => {
   })
 
   const start = async () => {
-    await fastify.listen(9999)
-    fastify.log.info(`server listening on ${fastify.server.address().port}`)
+    await fastify.listen(opts.port, opts.bindall ? '0.0.0.0' : undefined)
+    return `mirror is listening on ${fastify.server.address().address}:${fastify.server.address().port}`
   }
+
   return Object.freeze({
     start
   })
